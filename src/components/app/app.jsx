@@ -89,7 +89,7 @@ const App = (props) => {
               </ul>
             </form>
             <div className="cities__places-list places__list tabs__content">
-              {cardNames.map((it, i) => <Card key={name + i} name={it} />)}
+              {cardNames.map((it, i) => <Card key={name + i} name={it} onClick={()=>{}}/>)}
             </div>
           </section>
           <div className="cities__right-section">
