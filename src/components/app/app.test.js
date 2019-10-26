@@ -5,7 +5,7 @@ import App from "../app/app.jsx";
 it(`App correctly renders after relaunch`, () => {
   const tree = renderer
     .create(<App
-      cardNames={[`cardName1`, `cardName2`]}
+      cardOffers={[`cardName1`, `cardName2`]}
     />)
     .toJSON();
 
