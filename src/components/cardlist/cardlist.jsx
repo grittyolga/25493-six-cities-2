@@ -13,15 +13,19 @@ class Cardlist extends React.PureComponent {
   handleHover(card) {
     this.setState({activeCard: card});
   }
+  handleClick() {
+    window.location = `/details/${this.state.activeCard}`;
+  }
 
   render() {
     const {cardOffers} = this.props;
+
     return (
       <div className="cities__places-list places__list tabs__content">
         {cardOffers.map((card, i) => (
           <Card
             key={`card` + i}
-            onClick={() => {}}
+            onClick={this.handleClick.bind(this)}
             id={i}
             name={card.name}
             mark={card.mark}

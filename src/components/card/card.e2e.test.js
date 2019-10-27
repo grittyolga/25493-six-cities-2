@@ -18,7 +18,7 @@ it(`Card is correctly handles clicks`, () => {
     onHover={()=>{}}
     onClick={clickHandler}
   />);
-  const cardNameLink = card.find(`.place-card__name>a`);
+  const cardNameLink = card.find(`article.place-card`);
   cardNameLink.simulate(`click`);
 
   expect(clickHandler).toHaveBeenCalledTimes(1);

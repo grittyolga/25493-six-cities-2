@@ -21,6 +21,7 @@ const Card = (props) => {
       onMouseOver={() => {
         onHover(id);
       }}
+      onClick={onClick}
     >
       {mark && (
         <div className="place-card__mark">
@@ -63,7 +64,7 @@ const Card = (props) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#" onClick={onClick}>
+          <a href="#" >
             {name}
           </a>
         </h2>
