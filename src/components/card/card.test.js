@@ -7,6 +7,14 @@ it(`Card correctly renders after relaunch`, () => {
     .create(<Card
       name = { `testName`}
       onClick={()=>{}}
+      id = {100}
+      mark = {`empty`}
+      image ={ `empty`}
+      price = {0}
+      bookmark ={false}
+      rating = {0}
+      type = {`empty`}
+      onHover={()=>{}}
     />)
     .toJSON();
 

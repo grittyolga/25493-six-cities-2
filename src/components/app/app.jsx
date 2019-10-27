@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "../card/card.jsx";
 import PropTypes from "prop-types";
+import Cardlist from "../cardlist/cardlist.jsx";
 
 
 const App = (props) => {
-  const {cardNames} = props;
+  const {cardOffers} = props;
 
   return <div className="page page--gray page--main">
     <header className="header">
@@ -88,9 +88,7 @@ const App = (props) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            <div className="cities__places-list places__list tabs__content">
-              {cardNames.map((it, i) => <Card key={name + i} name={it} onClick={()=>{}}/>)}
-            </div>
+            <Cardlist cardOffers={cardOffers}/>
           </section>
           <div className="cities__right-section">
             <section className="cities__map map"></section>
@@ -102,7 +100,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  cardNames: PropTypes.array.isRequired
+  cardOffers: PropTypes.array.isRequired
 };
 
 export default App;
