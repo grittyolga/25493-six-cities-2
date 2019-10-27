@@ -88,9 +88,6 @@ const App = (props) => {
                 <li className="places__option" tabIndex="0">Top rated first</li>
               </ul>
             </form>
-            {/* <div className="cities__places-list places__list tabs__content">*/}
-            {/*  {cardNames.map((it, i) => <Card key={name + i} name={it} onClick={()=>{}}/>)}*/}
-            {/* </div>*/}
             <Cardlist cardOffers={cardOffers}/>
           </section>
           <div className="cities__right-section">

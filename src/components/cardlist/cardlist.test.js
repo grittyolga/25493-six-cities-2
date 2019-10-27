@@ -1,11 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import App from "../app/app.jsx";
+import Cardlist from "../cardlist/cardlist.jsx";
 import offers from "../../mocks/offers.js";
 
-it(`App correctly renders after relaunch`, () => {
+it(`Cardlist correctly renders after relaunch`, () => {
   const tree = renderer
-    .create(<App
+    .create(<Cardlist
       cardOffers={offers}
     />)
     .toJSON();

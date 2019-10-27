@@ -3,12 +3,14 @@ import PropTypes from "prop-types";
 
 
 const Card = (props) => {
-  const {name = `empty`, mark = `empty`, image = `empty`, price = 0, bookmark = false, rating = 0, type = `empty`, onClick, onHover} = props;
+  const {id, name, mark, image, price, bookmark, rating, type, onClick, onHover} = props;
 
-  return <article className="cities__place-card place-card" onHover={onHover}>
-    <div className="place-card__mark">
+  return <article className="cities__place-card place-card" onMouseOver ={()=> {
+    onHover(id);
+  } }>
+    {mark && <div className="place-card__mark">
       <span>{mark}</span>
-    </div>
+    </div>}
     <div className="cities__image-wrapper place-card__image-wrapper">
       <a href="#">
         <img className="place-card__image" src={image} width="260" height="200" alt="Place image"/>
@@ -42,9 +44,11 @@ const Card = (props) => {
 };
 
 Card.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  mark: PropTypes.string.isRequired,
+  onHover: PropTypes.func.isRequired,
+  mark: PropTypes.string,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   bookmark: PropTypes.bool.isRequired,

@@ -1,9 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
-
-
 const Offers = [
   {
+    id: 100,
     mark: `Premium`,
     image: `img/apartment-01.jpg`,
     price: 120,
@@ -13,6 +10,7 @@ const Offers = [
     type: `Apartment`
   },
   {
+    id: 101,
     image: `img/room.jpg`,
     price: 80,
     bookmark: true,
@@ -21,6 +19,7 @@ const Offers = [
     type: `Private room`
   },
   {
+    id: 102,
     image: `img/apartment-02.jpg`,
     price: 132,
     bookmark: false,
@@ -29,6 +28,7 @@ const Offers = [
     type: `Apartment`
   },
   {
+    id: 103,
     mark: `Premium`,
     image: `img/apartment-01.jpg`,
     price: 180,
