@@ -6,6 +6,7 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
 >
   <article
     className="cities__place-card place-card"
+    onClick={[Function]}
     onMouseOver={[Function]}
   >
     <div
@@ -96,7 +97,6 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Beautiful & luxurious apartment at great location
         </a>
@@ -110,6 +110,7 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onClick={[Function]}
     onMouseOver={[Function]}
   >
     <div
@@ -193,7 +194,6 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Wood and stone place
         </a>
@@ -207,6 +207,7 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onClick={[Function]}
     onMouseOver={[Function]}
   >
     <div
@@ -290,7 +291,6 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Canal View Prinsengracht
         </a>
@@ -304,6 +304,7 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
   </article>
   <article
     className="cities__place-card place-card"
+    onClick={[Function]}
     onMouseOver={[Function]}
   >
     <div
@@ -394,7 +395,6 @@ exports[`Cardlist correctly renders after relaunch 1`] = `
       >
         <a
           href="#"
-          onClick={[Function]}
         >
           Nice, cozy, warm big bed apartment
         </a>
