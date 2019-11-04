@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Cardlist from "../cardlist/cardlist.jsx";
+import Map from "../map/map.jsx";
 
 const MainPage = (props) => {
   const {cardOffers} = props;
@@ -90,7 +91,7 @@ const MainPage = (props) => {
             <Cardlist cardOffers={cardOffers}/>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <section className="cities__map map"><Map cardOffers={cardOffers}/></section>
           </div>
         </div>
       </div>
