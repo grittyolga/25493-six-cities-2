@@ -7,10 +7,10 @@ it(`Map correctly renders after relaunch`, () => {
   const tree = renderer
     .create(<Map
       cardOffers = {offers}
-      city = {[52.3709553943508, 4.89309666406198]}
-      iconUrl = {`img/pin.svg`}
-      iconSize = {[30, 30]}
-      zoom ={ 12}
+      cityMap = {[52.3709553943508, 4.89309666406198]}
+      iconUrlMap = {`img/pin.svg`}
+      iconSizeMap = {[30, 30]}
+      zoomMap = { 12}
     />)
     .toJSON();
 
