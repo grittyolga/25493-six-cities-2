@@ -1,9 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Cardlist from "../cardlist/cardlist.jsx";
+import Map from "../map/map.jsx";
 
 const MainPage = (props) => {
   const {cardOffers} = props;
+  const cityMap = [52.3709553943508, 4.89309666406198];
+  const iconUrlMap = `img/pin.svg`;
+  const iconSizeMap = [30, 30];
+  const zoomMap = 12;
 
   return <div className="page page--gray page--main">
     <header className="header">
@@ -90,7 +95,15 @@ const MainPage = (props) => {
             <Cardlist cardOffers={cardOffers}/>
           </section>
           <div className="cities__right-section">
-            <section className="cities__map map"></section>
+            <section className="cities__map map">
+              <Map
+                cityMap={cityMap}
+                iconUrlMap={iconUrlMap}
+                iconSizeMap={iconSizeMap}
+                zoomMap={zoomMap}
+                cardOffers={cardOffers}
+              />;
+            </section>
           </div>
         </div>
       </div>
