@@ -16,7 +16,7 @@ class Map extends React.PureComponent {
       iconUrlMap,
       iconSizeMap,
       zoomMap,
-      cardOffers
+      cityOffers
     } = this.props;
 
     const map = leaflet.map(mapRef, {
@@ -34,22 +34,37 @@ class Map extends React.PureComponent {
       })
       .addTo(map);
 
-    const icon = leaflet.icon({
+    this.icon = leaflet.icon({
       iconUrl: iconUrlMap,
       iconSize: iconSizeMap
     });
 
-    cardOffers.forEach((offer) => {
+    this.markersLayer = leaflet.layerGroup().addTo(map);
+
+    cityOffers.forEach((offer) => {
       leaflet
-        .marker(offer.coordinates, icon)
-        .addTo(map);
+        .marker(offer.coordinates, this.icon)
+        .addTo(this.markersLayer);
     });
   }
+
+  componentDidUpdate() {
+    const {cityOffers} = this.props;
+    this.markersLayer.clearLayers();
+    cityOffers.forEach((offer) => {
+      leaflet
+         .marker(offer.coordinates, this.icon)
+         .addTo(this.markersLayer);
+    });
+  }
+
   render() {
+
     const mapStyle = {
       width: `100%`,
       height: `100%`,
     };
+
     return (<div id="map" ref={this.mapRef} style={mapStyle}></div>);
   }
 
@@ -59,7 +74,8 @@ Map.propTypes = {
   iconUrlMap: PropTypes.string,
   iconSizeMap: PropTypes.array,
   zoomMap: PropTypes.number,
-  cardOffers: PropTypes.array.isRequired
+  cardOffers: PropTypes.array.isRequired,
+  cityOffers: PropTypes.array.isRequired
 };
 
 export default Map;
