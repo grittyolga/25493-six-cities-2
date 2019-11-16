@@ -6,7 +6,7 @@ import offers from "../../mocks/offers.js";
 it(`Cardlist correctly renders after relaunch`, () => {
   const tree = renderer
     .create(<Cardlist
-      cardOffers={offers}
+      cityOffers={offers}
     />)
     .toJSON();
 

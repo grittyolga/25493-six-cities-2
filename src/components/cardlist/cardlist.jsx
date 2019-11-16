@@ -18,11 +18,11 @@ class Cardlist extends React.PureComponent {
   }
 
   render() {
-    const {cardOffers} = this.props;
+    const {cityOffers} = this.props;
 
     return (
       <div className="cities__places-list places__list tabs__content">
-        {cardOffers.map((card, i) => (
+        {cityOffers.map((card, i) => (
           <Card
             key={`card` + i}
             onClick={this.handleClick.bind(this)}
@@ -42,7 +42,8 @@ class Cardlist extends React.PureComponent {
 }
 
 Cardlist.propTypes = {
-  cardOffers: PropTypes.array.isRequired,
+  cityOffers: PropTypes.array.isRequired,
 };
+
 
 export default Cardlist;
