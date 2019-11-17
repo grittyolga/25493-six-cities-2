@@ -15,6 +15,7 @@ it(`Card correctly renders after relaunch`, () => {
       rating = {0}
       type = {`empty`}
       onHover={()=>{}}
+      onMouseOut={()=>{}}
     />)
     .toJSON();
 

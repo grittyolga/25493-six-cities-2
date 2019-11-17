@@ -4,6 +4,7 @@ import Cardlist from "../cardlist/cardlist.jsx";
 import Map from "../map/map.jsx";
 import Citylist from "../citylist/citylist.jsx";
 import {connect} from "react-redux";
+import Filterlist from "../filterlist/filterlist.jsx";
 
 class MainPage extends React.PureComponent {
   constructor(props) {
@@ -18,7 +19,8 @@ class MainPage extends React.PureComponent {
     const {cardOffers, currentCity, cityOffers} = this.props;
     const cityMap = [52.3709553943508, 4.89309666406198];
     const iconUrlMap = `img/pin.svg`;
-    const iconSizeMap = [30, 30];
+    const iconActiveUrlMap = `img/pin-active.svg`;
+    const iconSizeMap = [27, 39];
     const zoomMap = 12;
     const offerCount = cityOffers.length;
 
@@ -55,21 +57,7 @@ class MainPage extends React.PureComponent {
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offerCount} places to stay in {currentCity}</b>
-              <form className="places__sorting" action="#" method="get">
-                <span className="places__sorting-caption">Sort by</span>
-                <span className="places__sorting-type" tabIndex="0">
-                    Popular
-                  <svg className="places__sorting-arrow" width="7" height="4">
-                    <use xlinkHref="#icon-arrow-select"></use>
-                  </svg>
-                </span>
-                <ul className="places__options places__options--custom places__options--opened">
-                  <li className="places__option places__option--active" tabIndex="0">Popular</li>
-                  <li className="places__option" tabIndex="0">Price: low to high</li>
-                  <li className="places__option" tabIndex="0">Price: high to low</li>
-                  <li className="places__option" tabIndex="0">Top rated first</li>
-                </ul>
-              </form>
+              <Filterlist/>
               <Cardlist cityOffers={cityOffers}/>
             </section>
             <div className="cities__right-section">
@@ -77,6 +65,7 @@ class MainPage extends React.PureComponent {
                 <Map
                   cityMap={cityMap}
                   iconUrlMap={iconUrlMap}
+                  iconActiveUrlMap={iconActiveUrlMap}
                   iconSizeMap={iconSizeMap}
                   zoomMap={zoomMap}
                   cardOffers={cardOffers}
