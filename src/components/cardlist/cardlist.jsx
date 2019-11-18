@@ -1,20 +1,21 @@
 import React from "react";
 import Card from "../card/card.jsx";
 import PropTypes from "prop-types";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../reducer";
 
 class Cardlist extends React.PureComponent {
   constructor(props) {
     super(props);
-
-    this.state = {
-      activeCard: -1
-    };
   }
   handleHover(card) {
-    this.setState({activeCard: card});
+    this.props.changeActiveCard(card);
+  }
+  handleMouseOut() {
+    this.props.changeActiveCard(-1);
   }
   handleClick() {
-    window.location = `/details/${this.state.activeCard}`;
+    window.location = `/details/${this.props.activeCard}`;
   }
 
   render() {
@@ -35,6 +36,7 @@ class Cardlist extends React.PureComponent {
             rating={card.rating}
             type={card.type}
             onHover={this.handleHover.bind(this)}
+            onMouseOut={this.handleMouseOut.bind(this)}
           />
         ))}
       </div>);
@@ -43,7 +45,19 @@ class Cardlist extends React.PureComponent {
 
 Cardlist.propTypes = {
   cityOffers: PropTypes.array.isRequired,
+  activeCard: PropTypes.number.isRequired,
+  changeActiveCard: PropTypes.func.isRequired
 };
 
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  activeCard: state.activeCard,
+});
 
-export default Cardlist;
+const mapDispatchToProps = (dispatch) => ({
+  changeActiveCard: (activeCard) => dispatch(ActionCreator.changeActiveCard(activeCard))
+});
+
+
+export {Cardlist};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cardlist);

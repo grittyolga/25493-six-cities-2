@@ -12,7 +12,8 @@ const Card = (props) => {
     rating,
     type,
     onClick,
-    onHover
+    onHover,
+    onMouseOut
   } = props;
 
   return (
@@ -20,6 +21,9 @@ const Card = (props) => {
       className="cities__place-card place-card"
       onMouseOver={() => {
         onHover(id);
+      }}
+      onMouseOut={() => {
+        onMouseOut();
       }}
       onClick={onClick}
     >
@@ -79,6 +83,7 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   onHover: PropTypes.func.isRequired,
+  onMouseOut: PropTypes.func.isRequired,
   mark: PropTypes.string,
   image: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,

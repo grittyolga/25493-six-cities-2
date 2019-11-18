@@ -1,6 +1,7 @@
 import React, {createRef} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
+import {connect} from "react-redux";
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -14,6 +15,7 @@ class Map extends React.PureComponent {
     const {
       cityMap,
       iconUrlMap,
+      iconActiveUrlMap,
       iconSizeMap,
       zoomMap,
       cityOffers
@@ -39,21 +41,26 @@ class Map extends React.PureComponent {
       iconSize: iconSizeMap
     });
 
+    this.iconActive = leaflet.icon({
+      iconUrl: iconActiveUrlMap,
+      iconSize: iconSizeMap
+    });
+
     this.markersLayer = leaflet.layerGroup().addTo(map);
 
     cityOffers.forEach((offer) => {
       leaflet
-        .marker(offer.coordinates, this.icon)
-        .addTo(this.markersLayer);
+        .marker(offer.coordinates, {icon: this.icon})
+        .addTo(map);
     });
   }
 
   componentDidUpdate() {
-    const {cityOffers} = this.props;
+    const {cityOffers, activeCard} = this.props;
     this.markersLayer.clearLayers();
-    cityOffers.forEach((offer) => {
+    cityOffers.forEach((offer, i) => {
       leaflet
-         .marker(offer.coordinates, this.icon)
+         .marker(offer.coordinates, {icon: i === activeCard ? this.iconActive : this.icon})
          .addTo(this.markersLayer);
     });
   }
@@ -72,10 +79,18 @@ class Map extends React.PureComponent {
 Map.propTypes = {
   cityMap: PropTypes.array,
   iconUrlMap: PropTypes.string,
+  iconActiveUrlMap: PropTypes.string,
   iconSizeMap: PropTypes.array,
   zoomMap: PropTypes.number,
   cardOffers: PropTypes.array.isRequired,
-  cityOffers: PropTypes.array.isRequired
+  cityOffers: PropTypes.array.isRequired,
+  activeCard: PropTypes.number.isRequired,
 };
 
-export default Map;
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  activeCard: state.activeCard,
+});
+export {Map};
+
+export default connect(mapStateToProps)(Map);

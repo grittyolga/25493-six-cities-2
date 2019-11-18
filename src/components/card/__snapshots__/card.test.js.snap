@@ -4,6 +4,7 @@ exports[`Card correctly renders after relaunch 1`] = `
 <article
   className="cities__place-card place-card"
   onClick={[Function]}
+  onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
   <div
