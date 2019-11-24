@@ -12,8 +12,9 @@ it(`Citylist correctly renders after relaunch`, () => {
   const tree = renderer
     .create(<Citylist
       cityList = {getCityList(offers)}
-      currentCity = {offers[0].city}
-      changeCity = {()=>{}}
+      activeItem= {offers[0].city}
+      onDeactivateItem={()=>{}}
+      onActivateItem={()=>{}}
     />)
     .toJSON();
 

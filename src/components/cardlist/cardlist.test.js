@@ -7,8 +7,9 @@ it(`Cardlist correctly renders after relaunch`, () => {
   const tree = renderer
     .create(<Cardlist
       cityOffers={offers}
-      activeCard={-1}
-      changeActiveCard={()=>{}}
+      activeItem={-1}
+      onDeactivateItem={()=>{}}
+      onActivateItem={()=>{}}
     />)
     .toJSON();
 
