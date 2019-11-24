@@ -5,6 +5,11 @@ import Map from "../map/map.jsx";
 import Citylist from "../citylist/citylist.jsx";
 import {connect} from "react-redux";
 import Filterlist from "../filterlist/filterlist.jsx";
+import withActiveItem from "../../hocs/with-active-item/with-active-item";
+import {ActionCreator} from "../../reducer";
+
+const CardlistWrapped = withActiveItem(Cardlist, `activeCard`, ActionCreator.changeActiveCard);
+const CitylistWrapped = withActiveItem(Citylist, `city`, ActionCreator.changeCity);
 
 class MainPage extends React.PureComponent {
   constructor(props) {
@@ -50,7 +55,7 @@ class MainPage extends React.PureComponent {
       <main className="page__main page__main--index">
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
-          <Citylist cityList={this.getCityList(cardOffers)}/>
+          <CitylistWrapped cityList={this.getCityList(cardOffers)}/>
         </div>
         <div className="cities">
           <div className="cities__places-container container">
@@ -58,7 +63,7 @@ class MainPage extends React.PureComponent {
               <h2 className="visually-hidden">Places</h2>
               <b className="places__found">{offerCount} places to stay in {currentCity}</b>
               <Filterlist/>
-              <Cardlist cityOffers={cityOffers}/>
+              <CardlistWrapped cityOffers={cityOffers}/>
             </section>
             <div className="cities__right-section">
               <section className="cities__map map">

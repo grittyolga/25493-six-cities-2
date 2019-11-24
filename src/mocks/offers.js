@@ -1,5 +1,5 @@
 
-const Offers = [
+const offers = [
   {
     mark: `Premium`,
     image: `img/apartment-01.jpg`,
@@ -216,4 +216,4 @@ const Offers = [
 ];
 
 
-export default Offers;
+export default offers;

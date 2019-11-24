@@ -1,4 +1,4 @@
-import Offers from "../src/mocks/offers";
+import offers from "../src/mocks/offers";
 
 const FilterType = {
   POPULAR: `POPULAR`,
@@ -8,8 +8,8 @@ const FilterType = {
 };
 
 const initialState = {
-  city: Offers[0].city,
-  cityOffers: Offers.filter((offer) => offer.city === Offers[0].city),
+  city: offers[0].city,
+  cityOffers: offers.filter((offer) => offer.city === offers[0].city),
   cityFilterType: FilterType.POPULAR,
   activeCard: -1
 };
@@ -40,10 +40,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {
         city: action.payload,
-        cityOffers: Offers.filter((offer) => offer.city === action.payload)
+        cityOffers: offers.filter((offer) => offer.city === action.payload)
       });
     case ActionType.CHANGE_FILTER_TYPE: {
-      const cityOffersFiltered = Offers.filter((offer) => offer.city === state.city);
+      const cityOffersFiltered = offers.filter((offer) => offer.city === state.city);
       switch (action.payload) {
         case FilterType.POPULAR:
           break;
