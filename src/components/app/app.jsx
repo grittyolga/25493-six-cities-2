@@ -13,7 +13,9 @@ class App extends React.PureComponent {
 
   getPageScreen() {
     const {cardOffers} = this.props;
-    if (location.pathname === `/`) {
+    if (cardOffers.length === 0) {
+      return null;
+    } else if (location.pathname === `/`) {
       return <MainPage cardOffers={cardOffers} />;
     } else if (location.pathname.startsWith(`/details`)) {
       return <DetailPage card={cardOffers[0]} />;

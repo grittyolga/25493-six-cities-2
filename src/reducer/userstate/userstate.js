@@ -1,5 +1,3 @@
-import offers from "../../mocks/offers";
-
 const FilterType = {
   POPULAR: `POPULAR`,
   PRICE_ASC: `PRICE_ASC`,
@@ -8,8 +6,7 @@ const FilterType = {
 };
 
 const initialState = {
-  city: offers[0].city,
-  cityOffers: offers.filter((offer) => offer.city === offers[0].city),
+  city: `Amsterdam`,
   cityFilterType: FilterType.POPULAR,
   activeCard: -1
 };
@@ -40,33 +37,10 @@ const reducer = (state = initialState, action) => {
     case ActionType.CHANGE_CITY:
       return Object.assign({}, state, {
         city: action.payload,
-        cityOffers: offers.filter((offer) => offer.city === action.payload)
       });
     case ActionType.CHANGE_FILTER_TYPE: {
-      const cityOffersFiltered = offers.filter((offer) => offer.city === state.city);
-      switch (action.payload) {
-        case FilterType.POPULAR:
-          break;
-        case FilterType.PRICE_ASC:
-          cityOffersFiltered.sort(function (a, b) {
-            return a.price - b.price;
-          });
-          break;
-        case FilterType.PRICE_DESC:
-          cityOffersFiltered.sort(function (a, b) {
-            return b.price - a.price;
-          });
-          break;
-        case FilterType.TOP:
-          cityOffersFiltered.sort(function (a, b) {
-            return b.rating - a.rating;
-          });
-          break;
-      }
-
       return Object.assign({}, state, {
         cityFilterType: action.payload,
-        cityOffers: cityOffersFiltered
       });
     }
     case ActionType.CHANGE_ACTIVE_CARD:
