@@ -51,9 +51,13 @@ class Map extends React.PureComponent {
 
     cityOffers.forEach((offer) => {
       leaflet
-        .marker(offer.coordinates, {icon: this.icon})
+        .marker(this.convertLocation(offer.location), {icon: this.icon})
         .addTo(map);
     });
+  }
+
+  convertLocation(location) {
+    return [location.latitude, location.longitude];
   }
 
   componentDidUpdate() {
@@ -61,7 +65,7 @@ class Map extends React.PureComponent {
     this.markersLayer.clearLayers();
     cityOffers.forEach((offer, i) => {
       leaflet
-         .marker(offer.coordinates, {icon: i === activeCard ? this.iconActive : this.icon})
+         .marker(this.convertLocation(offer.location), {icon: i === activeCard ? this.iconActive : this.icon})
          .addTo(this.markersLayer);
     });
   }

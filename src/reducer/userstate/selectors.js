@@ -9,7 +9,8 @@ export const getCity = (state) => {
 
 
 export const getCityOffers = (state) => {
-  return state[NAME_SPACE].cityOffers;
+  //return state[NAME_SPACE].cityOffers;
+  return state[NameSpace.DATA].offers.filter((offer) => offer.city.name === state[NAME_SPACE].city);
 };
 
 export const getActiveItem = (state, stateField) => {
