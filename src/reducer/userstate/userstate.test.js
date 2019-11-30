@@ -3,8 +3,8 @@ import {
   ActionType,
   FilterType,
   reducer
-} from "./reducer";
-import offers from "./mocks/offers.js";
+} from "../index";
+import offers from "../../mocks/offers.js";
 
 
 it(`Action creator for changeCity returns correct action`, () => {

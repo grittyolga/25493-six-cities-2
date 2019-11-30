@@ -1,4 +1,4 @@
-import offers from "../src/mocks/offers";
+import offers from "../../mocks/offers";
 
 const FilterType = {
   POPULAR: `POPULAR`,

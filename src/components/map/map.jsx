@@ -2,6 +2,7 @@ import React, {createRef} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 import {connect} from "react-redux";
+import {getActiveCard} from "../../reducer/userstate/selectors";
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -89,7 +90,7 @@ Map.propTypes = {
 
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCard: state.activeCard,
+  activeCard: getActiveCard(state),
 });
 export {Map};
 

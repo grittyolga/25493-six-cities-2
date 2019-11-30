@@ -6,7 +6,8 @@ import Citylist from "../citylist/citylist.jsx";
 import {connect} from "react-redux";
 import Filterlist from "../filterlist/filterlist.jsx";
 import withActiveItem from "../../hocs/with-active-item/with-active-item";
-import {ActionCreator} from "../../reducer";
+import {ActionCreator} from "../../reducer/userstate/userstate";
+import {getCity, getCityOffers} from "../../reducer/userstate/selectors";
 
 const CardlistWrapped = withActiveItem(Cardlist, `activeCard`, ActionCreator.changeActiveCard);
 const CitylistWrapped = withActiveItem(Citylist, `city`, ActionCreator.changeCity);
@@ -16,7 +17,7 @@ class MainPage extends React.PureComponent {
     super(props);
   }
   getCityList(cardOffers) {
-    const cityList = Array.from(cardOffers, (x) => x.city);
+    const cityList = Array.from(cardOffers, (x) => x.city.name);
     return Array.from(new Set(cityList));
   }
 
@@ -92,8 +93,8 @@ MainPage.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  currentCity: state.city,
-  cityOffers: state.cityOffers,
+  currentCity: getCity(state),
+  cityOffers: getCityOffers(state),
 });
 
 export {MainPage};

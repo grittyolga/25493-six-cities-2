@@ -1,7 +1,9 @@
 import React from "react";
+import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import MainPage from "../mainpage/mainpage.jsx";
 import DetailPage from "../detailpage/detailpage.jsx";
+import {getOffers} from "../../reducer/data/selectors";
 
 
 class App extends React.PureComponent {
@@ -28,4 +30,11 @@ App.propTypes = {
   cardOffers: PropTypes.array.isRequired
 };
 
-export default App;
+
+const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
+  cardOffers: getOffers(state),
+});
+
+export {App};
+
+export default connect(mapStateToProps)(App);

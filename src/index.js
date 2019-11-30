@@ -1,25 +1,32 @@
-import {createStore} from "redux";
+import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
-import {reducer} from "./reducer";
+import reducer from "./reducer/index.js";
 import React from "react";
 import ReactDOM from "react-dom";
+import thunk from "redux-thunk";
+import {compose} from "recompose";
 import App from "../src/components/app/app.jsx";
-import offers from "./mocks/offers.js";
+import {createAPI} from './api';
+import {Operation} from "./reducer/data/data";
 
-const init = (cardOffers) => {
+const init = () => {
+  const api = createAPI((...args) => store.dispatch(...args));
   /* eslint-disable no-underscore-dangle */
   const store = createStore(
       reducer,
-      window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+      compose(
+          applyMiddleware(thunk.withExtraArgument(api)),
+          window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+      )
   );
   /* eslint-enable */
+  store.dispatch(Operation.loadOffers());
+
   ReactDOM.render(<Provider store={store}>
-    <App
-      cardOffers= {cardOffers}
-    />
+    <App/>
   </Provider>,
   document.querySelector(`#root`)
   );
 };
 
-init(offers);
+init();
