@@ -7,7 +7,6 @@ import thunk from "redux-thunk";
 import {compose} from "recompose";
 import App from "../src/components/app/app.jsx";
 import {createAPI} from './api';
-import {Operation} from "./reducer/data/data";
 
 const init = () => {
   const api = createAPI((...args) => store.dispatch(...args));
@@ -20,7 +19,6 @@ const init = () => {
       )
   );
   /* eslint-enable */
-  store.dispatch(Operation.loadOffers());
 
   ReactDOM.render(<Provider store={store}>
     <App/>
