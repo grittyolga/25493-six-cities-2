@@ -1,3 +1,4 @@
+import {createSelector} from "reselect";
 import NameSpace from "../name-spaces";
 import {FilterType} from "./userstate";
 
@@ -7,8 +8,9 @@ export const getCity = (state) => {
   return state[NAME_SPACE].city;
 };
 
+
 export const getCityOffers = (state) => {
-  const cityOffersFiltered = state[NameSpace.DATA].offers.filter((offer) => offer.city.name === state[NAME_SPACE].city);
+  const cityOffersFiltered = getCityOffersAll(state);
 
   switch (state[NAME_SPACE].cityFilterType) {
     case FilterType.POPULAR:
@@ -31,6 +33,12 @@ export const getCityOffers = (state) => {
   }
   return cityOffersFiltered;
 };
+
+const getCityOffersAll = createSelector(
+    (state) => state[NameSpace.DATA].offers,
+    (state) => getCity(state),
+    (offers, city) => offers.filter((offer) => offer.city.name === city)
+);
 
 export const getActiveItem = (state, stateField) => {
   return state[NAME_SPACE][stateField];
