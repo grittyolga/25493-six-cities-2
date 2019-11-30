@@ -95,7 +95,7 @@ const DetailPage = (props) => {
             <span>Premium</span>
           </div>
           <div className="property__name-wrapper">
-            <h1 className="property__name">{card.name}</h1>
+            <h1 className="property__name">{card.title}</h1>
             <button className="property__bookmark-button button" type="button">
               <svg className="property__bookmark-icon" width="31" height="33">
                 <use xlinkHref="#icon-bookmark"></use>

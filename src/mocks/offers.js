@@ -1,12 +1,13 @@
+/* eslint-disable camelcase */
 
 const offers = [
   {
     mark: `Premium`,
-    image: `img/apartment-01.jpg`,
+    images: [`img/apartment-01.jpg`],
     price: 120,
-    bookmark: false,
+    is_favorite: false,
     rating: 93,
-    name: `Beautiful & luxurious apartment at great location`,
+    title: `Beautiful & luxurious apartment at great location`,
     type: `Apartment`,
     ratingNumber: 4.8,
     placeType: `Entire place`,
@@ -38,11 +39,11 @@ const offers = [
   },
   {
     mark: `Premium`,
-    image: `img/apartment-01.jpg`,
+    images: [`img/apartment-01.jpg`],
     price: 215,
-    bookmark: false,
+    is_favorite: false,
     rating: 100,
-    name: `Luxurious apartment`,
+    title: `Luxurious apartment`,
     type: `Apartment`,
     ratingNumber: 5,
     placeType: `Entire place`,
@@ -73,11 +74,11 @@ const offers = [
              `]
   },
   {
-    image: `img/apartment-small-04.jpg`,
+    images: [`img/apartment-small-04.jpg`],
     price: 66,
-    bookmark: false,
+    is_favorite: false,
     rating: 60,
-    name: `Nice apartment at great location`,
+    title: `Nice apartment at great location`,
     type: `Apartment`,
     ratingNumber: 3,
     placeType: `Entire place`,
@@ -108,11 +109,11 @@ const offers = [
              `]
   },
   {
-    image: `img/room.jpg`,
+    images: [`img/room.jpg`],
     price: 80,
-    bookmark: true,
+    is_favorite: true,
     rating: 80,
-    name: `Wood and stone place`,
+    title: `Wood and stone place`,
     type: `Private room`,
     ratingNumber: 4,
     placeType: `Entire place`,
@@ -143,11 +144,11 @@ const offers = [
              `]
   },
   {
-    image: `img/apartment-02.jpg`,
+    images: [`img/apartment-02.jpg`],
     price: 132,
-    bookmark: false,
+    is_favorite: false,
     rating: 80,
-    name: `Canal View Prinsengracht`,
+    title: `Canal View Prinsengracht`,
     type: `Apartment`,
     ratingNumber: 4,
     placeType: `Entire place`,
@@ -179,11 +180,11 @@ const offers = [
   },
   {
     mark: `Premium`,
-    image: `img/apartment-01.jpg`,
+    images: [`img/apartment-01.jpg`],
     price: 180,
-    bookmark: false,
+    is_favorite: false,
     rating: 100,
-    name: `Nice, cozy, warm big bed apartment`,
+    title: `Nice, cozy, warm big bed apartment`,
     type: `Apartment`,
     ratingNumber: 5,
     placeType: `Entire place`,
