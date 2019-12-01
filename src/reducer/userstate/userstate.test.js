@@ -3,8 +3,8 @@ import {
   ActionType,
   FilterType,
   reducer
-} from "./reducer";
-import offers from "./mocks/offers.js";
+} from "../userstate/userstate.js";
+import offers from "../../mocks/offers.js";
 
 
 it(`Action creator for changeCity returns correct action`, () => {
@@ -32,7 +32,6 @@ it(`Action creator for changeActiveCard returns correct action`, () => {
 it(`Reducer without additional parameters should return initial state`, () => {
   expect(reducer(undefined, {})).toEqual({
     city: offers[0].city,
-    cityOffers: offers.filter((offer) => offer.city === offers[0].city),
     cityFilterType: FilterType.POPULAR,
     activeCard: -1
   });
@@ -46,7 +45,6 @@ it(`Reducer return right state after changing city`, () => {
       }
   )).toEqual({
     city: `Cologne`,
-    cityOffers: offers.filter((offer) => offer.city === `Cologne`),
     cityFilterType: FilterType.POPULAR,
     activeCard: -1
   });
@@ -60,9 +58,6 @@ it(`Reducer return right state after changing filterType`, () => {
       }
   )).toEqual({
     city: offers[0].city,
-    cityOffers: offers.filter((offer) => offer.city === offers[0].city).sort(function (a, b) {
-      return b.rating - a.rating;
-    }),
     cityFilterType: FilterType.TOP,
     activeCard: -1
   });
@@ -76,7 +71,6 @@ it(`Reducer return right state after changing active card`, () => {
       }
   )).toEqual({
     city: offers[0].city,
-    cityOffers: offers.filter((offer) => offer.city === offers[0].city),
     cityFilterType: FilterType.POPULAR,
     activeCard: 100
   });

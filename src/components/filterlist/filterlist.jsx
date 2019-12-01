@@ -1,7 +1,8 @@
 import React from "react";
-import {ActionCreator, FilterType} from "../../reducer";
+import {ActionCreator, FilterType} from "../../reducer/userstate/userstate";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {getCurrentFilter} from "../../reducer/userstate/selectors";
 
 class Filterlist extends React.PureComponent {
   constructor(props) {
@@ -72,7 +73,7 @@ Filterlist.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  currentFilter: state.cityFilterType,
+  currentFilter: getCurrentFilter(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

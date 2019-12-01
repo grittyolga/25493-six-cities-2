@@ -4,7 +4,7 @@ import App from "../app/app.jsx";
 import offers from "../../mocks/offers.js";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
-import {reducer} from "../../reducer";
+import reducer from "../../reducer";
 
 it(`App correctly renders after relaunch`, () => {
   const store = createStore(

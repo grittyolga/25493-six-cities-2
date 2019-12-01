@@ -14,6 +14,7 @@ it(`Map correctly renders after relaunch`, () => {
       iconSizeMap = {[30, 30]}
       zoomMap = { 12}
       activeCard = {-1}
+      city = {`Amsterdam`}
     />)
     .toJSON();
 

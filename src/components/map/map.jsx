@@ -2,6 +2,7 @@ import React, {createRef} from "react";
 import PropTypes from "prop-types";
 import leaflet from "leaflet";
 import {connect} from "react-redux";
+import {getActiveCard, getCity} from "../../reducer/userstate/selectors";
 
 class Map extends React.PureComponent {
   constructor(props) {
@@ -18,23 +19,20 @@ class Map extends React.PureComponent {
       iconActiveUrlMap,
       iconSizeMap,
       zoomMap,
-      cityOffers
     } = this.props;
 
-    const map = leaflet.map(mapRef, {
+    this.map = leaflet.map(mapRef, {
       center: cityMap,
       zoom: zoomMap,
       zoomControl: false,
       marker: true
     });
 
-    map.setView(cityMap, zoomMap);
-
     leaflet
       .tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png`, {
         attribution: `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>`
       })
-      .addTo(map);
+      .addTo(this.map);
 
     this.icon = leaflet.icon({
       iconUrl: iconUrlMap,
@@ -46,23 +44,24 @@ class Map extends React.PureComponent {
       iconSize: iconSizeMap
     });
 
-    this.markersLayer = leaflet.layerGroup().addTo(map);
+    this.markersLayer = leaflet.layerGroup().addTo(this.map);
+  }
 
-    cityOffers.forEach((offer) => {
-      leaflet
-        .marker(offer.coordinates, {icon: this.icon})
-        .addTo(map);
-    });
+  convertLocation(location) {
+    return [location.latitude, location.longitude];
   }
 
   componentDidUpdate() {
-    const {cityOffers, activeCard} = this.props;
+    const {cardOffers, city, cityOffers, activeCard} = this.props;
     this.markersLayer.clearLayers();
     cityOffers.forEach((offer, i) => {
       leaflet
-         .marker(offer.coordinates, {icon: i === activeCard ? this.iconActive : this.icon})
+         .marker(this.convertLocation(offer.location), {icon: i === activeCard ? this.iconActive : this.icon})
          .addTo(this.markersLayer);
     });
+
+    const activeCity = cardOffers.find((c) => c.city.name === city).city;
+    this.map.setView(this.convertLocation(activeCity.location), activeCity.location.zoom);
   }
 
   render() {
@@ -82,6 +81,7 @@ Map.propTypes = {
   iconActiveUrlMap: PropTypes.string,
   iconSizeMap: PropTypes.array,
   zoomMap: PropTypes.number,
+  city: PropTypes.string.isRequired,
   cardOffers: PropTypes.array.isRequired,
   cityOffers: PropTypes.array.isRequired,
   activeCard: PropTypes.number.isRequired,
@@ -89,7 +89,8 @@ Map.propTypes = {
 
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-  activeCard: state.activeCard,
+  activeCard: getActiveCard(state),
+  city: getCity(state)
 });
 export {Map};
 

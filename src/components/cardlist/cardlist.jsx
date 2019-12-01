@@ -21,11 +21,11 @@ class Cardlist extends React.PureComponent {
             key={`card` + i}
             onClick={this.handleClick.bind(this)}
             id={i}
-            name={card.name}
+            name={card.title}
             mark={card.mark}
-            image={card.image}
+            image={card.images[0]}
             price={card.price}
-            bookmark={card.bookmark}
+            bookmark={card.is_favorite}
             rating={card.rating}
             type={card.type}
             onHover={this.props.onActivateItem}

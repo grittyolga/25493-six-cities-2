@@ -1,6 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import {getActiveItem} from "../../reducer/userstate/selectors";
 
 const withActiveItem = (Component, stateField, dispatchFunc) => {
   class WithActiveItem extends React.PureComponent {
@@ -29,7 +30,7 @@ const withActiveItem = (Component, stateField, dispatchFunc) => {
   };
 
   const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
-    activeItem: state[stateField]
+    activeItem: getActiveItem(state, stateField)
   });
 
   const mapDispatchToProps = (dispatch) => ({
