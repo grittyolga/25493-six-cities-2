@@ -14,7 +14,8 @@ const initialState = {
 const ActionType = {
   CHANGE_CITY: `CHANGE_CITY`,
   CHANGE_FILTER_TYPE: `CHANGE_FILTER_TYPE`,
-  CHANGE_ACTIVE_CARD: `CHANGE_ACTIVE_CARD`
+  CHANGE_ACTIVE_CARD: `CHANGE_ACTIVE_CARD`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`
 };
 
 const ActionCreator = {
@@ -29,7 +30,7 @@ const ActionCreator = {
   changeActiveCard: (activeCard) => ({
     type: ActionType.CHANGE_ACTIVE_CARD,
     payload: activeCard,
-  }),
+  })
 };
 
 const reducer = (state = initialState, action) => {
