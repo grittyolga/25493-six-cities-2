@@ -18,6 +18,8 @@ it(`MainPage correctly renders after relaunch`, () => {
         currentCity={offers[0].city}
         cityOffers={offers.filter((offer) => offer.city === offers[0].city)}
         loadOffers={() => {}}
+        authData={{}}
+        signedIn={false}
       />
     </Provider>)
     .toJSON();

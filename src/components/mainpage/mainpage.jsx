@@ -11,6 +11,7 @@ import {ActionCreator as ActionCreatorData} from "../../reducer/data/data";
 import {getCity, getCityOffers} from "../../reducer/userstate/selectors";
 import {getOffers} from "../../reducer/data/selectors";
 import {createAPI} from "../../api";
+import {getAuthData, getSignedIn} from "../../reducer/auth/selectors";
 
 const CardlistWrapped = withActiveItem(Cardlist, `activeCard`, ActionCreator.changeActiveCard);
 const CitylistWrapped = withActiveItem(Citylist, `city`, ActionCreator.changeCity);
@@ -31,7 +32,7 @@ class MainPage extends React.PureComponent {
   }
 
   render() {
-    const {cardOffers, currentCity, cityOffers} = this.props;
+    const {cardOffers, currentCity, cityOffers, authData, signedIn} = this.props;
     const cityMap = [52.3709553943508, 4.89309666406198];
     const iconUrlMap = `img/pin.svg`;
     const iconActiveUrlMap = `img/pin-active.svg`;
@@ -55,7 +56,7 @@ class MainPage extends React.PureComponent {
                     <a className="header__nav-link header__nav-link--profile" href="#">
                       <div className="header__avatar-wrapper user__avatar-wrapper">
                       </div>
-                      <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
+                      <span className="header__user-name user__name">{signedIn ? (authData.email) : (`Sign In`) }</span>
                     </a>
                   </li>
                 </ul>
@@ -101,13 +102,17 @@ MainPage.propTypes = {
   cardOffers: PropTypes.array.isRequired,
   currentCity: PropTypes.string.isRequired,
   cityOffers: PropTypes.array.isRequired,
-  loadOffers: PropTypes.func.isRequired
+  loadOffers: PropTypes.func.isRequired,
+  authData: PropTypes.object.isRequired,
+  signedIn: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {
   currentCity: getCity(state),
   cityOffers: getCityOffers(state),
   cardOffers: getOffers(state),
+  authData: getAuthData(state),
+  signedIn: getSignedIn(state)
 });
 
 const mapDispatchToProps = (dispatch) => ({
