@@ -25,6 +25,13 @@ class SignIn extends React.PureComponent {
       });
   }
 
+  handleEmail(event) {
+    this.setState({email: event.target.value});
+  }
+
+  handlePassword(event) {
+    this.setState({pass: event.target.value});
+  }
 
   render() {
     return (
@@ -72,7 +79,7 @@ class SignIn extends React.PureComponent {
                     name="email"
                     placeholder="Email"
                     required={true}
-                    onChange={(e)=>this.setState({email: e.target.value})}
+                    onChange={this.handleEmail.bind(this)}
                   />
                 </div>
                 <div className="login__input-wrapper form__input-wrapper">
@@ -83,7 +90,7 @@ class SignIn extends React.PureComponent {
                     name="password"
                     placeholder="Password"
                     required={true}
-                    onChange={(e)=>this.setState({pass: e.target.value})}
+                    onChange={this.handlePassword.bind(this)}
                   />
                 </div>
                 <button className="login__submit form__submit button" type="submit">
