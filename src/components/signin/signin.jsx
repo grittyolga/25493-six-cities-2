@@ -22,7 +22,7 @@ class SignIn extends React.PureComponent {
     })
       .then((response) => {
         this.props.saveAuth(response.data);
-        this.props.history.push('/');
+        this.props.history.push(`/`);
       });
   }
 

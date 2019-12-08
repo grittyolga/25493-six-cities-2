@@ -2,7 +2,8 @@
 
 const offers = [
   {
-    mark: `Premium`,
+    id: 1,
+    is_premium: true,
     images: [`img/apartment-01.jpg`],
     price: 120,
     is_favorite: false,
@@ -38,7 +39,8 @@ const offers = [
              `]
   },
   {
-    mark: `Premium`,
+    id: 2,
+    is_premium: true,
     images: [`img/apartment-01.jpg`],
     price: 215,
     is_favorite: false,
@@ -74,6 +76,7 @@ const offers = [
              `]
   },
   {
+    id: 3,
     images: [`img/apartment-small-04.jpg`],
     price: 66,
     is_favorite: false,
@@ -109,6 +112,7 @@ const offers = [
              `]
   },
   {
+    id: 4,
     images: [`img/room.jpg`],
     price: 80,
     is_favorite: true,
@@ -144,6 +148,7 @@ const offers = [
              `]
   },
   {
+    id: 5,
     images: [`img/apartment-02.jpg`],
     price: 132,
     is_favorite: false,
@@ -179,7 +184,8 @@ const offers = [
              `]
   },
   {
-    mark: `Premium`,
+    id: 6,
+    is_premium: true,
     images: [`img/apartment-01.jpg`],
     price: 180,
     is_favorite: false,

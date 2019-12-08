@@ -8,7 +8,8 @@ it(`Card correctly renders after relaunch`, () => {
       name = { `testName`}
       onClick={()=>{}}
       id = {100}
-      mark = {`empty`}
+      index = {1}
+      premium = {true}
       image ={ `empty`}
       price = {0}
       bookmark ={false}
@@ -16,6 +17,7 @@ it(`Card correctly renders after relaunch`, () => {
       type = {`empty`}
       onHover={()=>{}}
       onMouseOut={()=>{}}
+      onBookmark={()=>{}}
     />)
     .toJSON();
 

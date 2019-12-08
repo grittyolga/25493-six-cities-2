@@ -3,7 +3,6 @@
 exports[`Card correctly renders after relaunch 1`] = `
 <article
   className="cities__place-card place-card"
-  onClick={[Function]}
   onMouseOut={[Function]}
   onMouseOver={[Function]}
 >
@@ -11,7 +10,7 @@ exports[`Card correctly renders after relaunch 1`] = `
     className="place-card__mark"
   >
     <span>
-      empty
+      Premium
     </span>
   </div>
   <div
@@ -19,6 +18,7 @@ exports[`Card correctly renders after relaunch 1`] = `
   >
     <a
       href="#"
+      onClick={[Function]}
     >
       <img
         alt="Place image"
@@ -51,7 +51,8 @@ exports[`Card correctly renders after relaunch 1`] = `
         </span>
       </div>
       <button
-        className="place-card__bookmark-button  button"
+        className="place-card__bookmark-button button"
+        onClick={[Function]}
         type="button"
       >
         <svg
@@ -95,6 +96,7 @@ exports[`Card correctly renders after relaunch 1`] = `
     >
       <a
         href="#"
+        onClick={[Function]}
       >
         testName
       </a>

@@ -10,6 +10,7 @@ it(`Cardlist correctly renders after relaunch`, () => {
       activeItem={-1}
       onDeactivateItem={()=>{}}
       onActivateItem={()=>{}}
+      updateOfferFavorite={()=>{}}
     />)
     .toJSON();
 

@@ -5,6 +5,7 @@ import offers from "../../mocks/offers.js";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import reducer from "../../reducer";
+import {BrowserRouter} from "react-router-dom";
 
 it(`MainPage correctly renders after relaunch`, () => {
   const store = createStore(
@@ -13,14 +14,16 @@ it(`MainPage correctly renders after relaunch`, () => {
   );
   const tree = renderer
     .create(<Provider store={store}>
-      <MainPage
-        cardOffers={offers}
-        currentCity={offers[0].city}
-        cityOffers={offers.filter((offer) => offer.city === offers[0].city)}
-        loadOffers={() => {}}
-        authData={{}}
-        signedIn={false}
-      />
+      <BrowserRouter>
+        <MainPage
+          cardOffers={offers}
+          currentCity={offers[0].city}
+          cityOffers={offers.filter((offer) => offer.city === offers[0].city)}
+          loadOffers={() => {}}
+          authData={{}}
+          signedIn={false}
+        />
+      </BrowserRouter>
     </Provider>)
     .toJSON();
 

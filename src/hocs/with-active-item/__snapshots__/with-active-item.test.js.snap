@@ -7,7 +7,6 @@ Array [
   >
     <article
       className="cities__place-card place-card"
-      onClick={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
     >
@@ -23,6 +22,7 @@ Array [
       >
         <a
           href="#"
+          onClick={[Function]}
         >
           <img
             alt="Place image"
@@ -55,7 +55,8 @@ Array [
             </span>
           </div>
           <button
-            className="place-card__bookmark-button  button"
+            className="place-card__bookmark-button button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -99,6 +100,7 @@ Array [
         >
           <a
             href="#"
+            onClick={[Function]}
           >
             Beautiful & luxurious apartment at great location
           </a>
@@ -112,7 +114,6 @@ Array [
     </article>
     <article
       className="cities__place-card place-card"
-      onClick={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
     >
@@ -128,6 +129,7 @@ Array [
       >
         <a
           href="#"
+          onClick={[Function]}
         >
           <img
             alt="Place image"
@@ -160,7 +162,8 @@ Array [
             </span>
           </div>
           <button
-            className="place-card__bookmark-button  button"
+            className="place-card__bookmark-button button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -204,6 +207,7 @@ Array [
         >
           <a
             href="#"
+            onClick={[Function]}
           >
             Luxurious apartment
           </a>
@@ -217,7 +221,6 @@ Array [
     </article>
     <article
       className="cities__place-card place-card"
-      onClick={[Function]}
       onMouseOut={[Function]}
       onMouseOver={[Function]}
     >
@@ -226,6 +229,7 @@ Array [
       >
         <a
           href="#"
+          onClick={[Function]}
         >
           <img
             alt="Place image"
@@ -258,7 +262,8 @@ Array [
             </span>
           </div>
           <button
-            className="place-card__bookmark-button  button"
+            className="place-card__bookmark-button button"
+            onClick={[Function]}
             type="button"
           >
             <svg
@@ -302,6 +307,7 @@ Array [
         >
           <a
             href="#"
+            onClick={[Function]}
           >
             Nice apartment at great location
           </a>

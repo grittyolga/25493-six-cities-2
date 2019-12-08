@@ -8,8 +8,9 @@ it(`Card is correctly handles clicks`, () => {
   const clickHandler = jest.fn();
   const card = shallow(<Card
     id = {100}
+    index = {1}
+    premium = {true}
     name = { `testName`}
-    mark = {`empty`}
     image ={ `empty`}
     price = {0}
     bookmark ={false}
@@ -18,8 +19,9 @@ it(`Card is correctly handles clicks`, () => {
     onHover={()=>{}}
     onClick={clickHandler}
     onMouseOut={()=>{}}
+    onBookmark={()=>{}}
   />);
-  const cardNameLink = card.find(`article.place-card`);
+  const cardNameLink = card.find(`a`).first();
   cardNameLink.simulate(`click`);
 
   expect(clickHandler).toHaveBeenCalledTimes(1);
@@ -31,16 +33,18 @@ it(`Info about active card is correct on hover`, () => {
   const mouseOutHandler = jest.fn();
   const card = shallow(<Card
     id = {101}
+    index = {101}
     name = { `testName2`}
-    mark = {`empty`}
+    premium = {true}
     image ={ `empty`}
     price = {0}
-    bookmark ={false}
+    bookmark = {false}
     rating = {0}
     type = {`empty`}
     onHover={hoverHandler}
     onClick={()=>{}}
     onMouseOut={mouseOutHandler}
+    onBookmark={()=>{}}
   />);
   const article = card.find(`.place-card`);
   article.simulate(`mouseover`);

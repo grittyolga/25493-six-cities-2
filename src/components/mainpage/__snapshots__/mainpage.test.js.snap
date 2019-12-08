@@ -39,16 +39,10 @@ exports[`MainPage correctly renders after relaunch 1`] = `
             >
               <a
                 className="header__nav-link header__nav-link--profile"
-                href="#"
+                href="/login"
+                onClick={[Function]}
               >
-                <div
-                  className="header__avatar-wrapper user__avatar-wrapper"
-                />
-                <span
-                  className="header__user-name user__name"
-                >
-                  Sign In
-                </span>
+                Sign In
               </a>
             </li>
           </ul>
@@ -172,7 +166,6 @@ exports[`MainPage correctly renders after relaunch 1`] = `
           >
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
@@ -188,6 +181,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               >
                 <a
                   href="#"
+                  onClick={[Function]}
                 >
                   <img
                     alt="Place image"
@@ -220,7 +214,8 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button  button"
+                    className="place-card__bookmark-button button"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -264,6 +259,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Beautiful & luxurious apartment at great location
                   </a>
@@ -277,7 +273,6 @@ exports[`MainPage correctly renders after relaunch 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
@@ -293,6 +288,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               >
                 <a
                   href="#"
+                  onClick={[Function]}
                 >
                   <img
                     alt="Place image"
@@ -325,7 +321,8 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button  button"
+                    className="place-card__bookmark-button button"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -369,6 +366,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Luxurious apartment
                   </a>
@@ -382,7 +380,6 @@ exports[`MainPage correctly renders after relaunch 1`] = `
             </article>
             <article
               className="cities__place-card place-card"
-              onClick={[Function]}
               onMouseOut={[Function]}
               onMouseOver={[Function]}
             >
@@ -391,6 +388,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
               >
                 <a
                   href="#"
+                  onClick={[Function]}
                 >
                   <img
                     alt="Place image"
@@ -423,7 +421,8 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                     </span>
                   </div>
                   <button
-                    className="place-card__bookmark-button  button"
+                    className="place-card__bookmark-button button"
+                    onClick={[Function]}
                     type="button"
                   >
                     <svg
@@ -467,6 +466,7 @@ exports[`MainPage correctly renders after relaunch 1`] = `
                 >
                   <a
                     href="#"
+                    onClick={[Function]}
                   >
                     Nice apartment at great location
                   </a>
