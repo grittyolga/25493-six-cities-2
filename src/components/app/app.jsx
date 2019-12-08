@@ -1,26 +1,30 @@
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from "react-router-dom";
 import MainPage from "../mainpage/mainpage.jsx";
 import DetailPage from "../detailpage/detailpage.jsx";
-import withAuth from "../../hocs/with-auth/with-auth";
+import SignIn from "../signin/signin.jsx";
 
-const MainPageWrapped = withAuth(MainPage);
 
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
   }
 
-  getPageScreen() {
-    if (location.pathname === `/`) {
-      return <MainPageWrapped />;
-    } else if (location.pathname.startsWith(`/details`)) {
-      return <DetailPage card={0} />;
-    } else {
-      return null;
-    }
-  }
   render() {
-    return <React.Fragment>{this.getPageScreen()}</React.Fragment>;
+    return (
+      <Router>
+        <Switch>
+          <Route path="/" exact component={MainPage} />
+          <Route path="/login" exact component={SignIn} />
+          <Route path="/favorites" render={()=><div>в след. задании будет страница</div>} />
+          <Route path="/details/:id" component={DetailPage} />
+        </Switch>
+      </Router>
+    );
   }
 }
 

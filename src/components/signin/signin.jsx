@@ -22,6 +22,7 @@ class SignIn extends React.PureComponent {
     })
       .then((response) => {
         this.props.saveAuth(response.data);
+        this.props.history.push('/');
       });
   }
 
@@ -113,7 +114,8 @@ class SignIn extends React.PureComponent {
 }
 
 SignIn.propTypes = {
-  saveAuth: PropTypes.func.isRequired
+  saveAuth: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => Object.assign({}, ownProps, {

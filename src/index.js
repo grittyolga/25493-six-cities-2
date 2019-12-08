@@ -2,6 +2,7 @@ import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import reducer from "./reducer/index.js";
 import React from "react";
+import {BrowserRouter} from "react-router-dom";
 import ReactDOM from "react-dom";
 import thunk from "redux-thunk";
 import {compose} from "recompose";
@@ -21,7 +22,9 @@ const init = () => {
   /* eslint-enable */
 
   ReactDOM.render(<Provider store={store}>
-    <App/>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.querySelector(`#root`)
   );
