@@ -52,3 +52,26 @@ it(`Info about active card is correct on hover`, () => {
   article.simulate(`mouseout`);
   expect(mouseOutHandler).toHaveBeenCalledTimes(1);
 });
+
+it(`Card is correctly handles favorite`, () => {
+  const bookmarkHandler = jest.fn();
+  const card = shallow(<Card
+    id = {101}
+    index = {101}
+    name = { `testName3`}
+    premium = {true}
+    image ={ `empty`}
+    price = {0}
+    bookmark = {false}
+    rating = {0}
+    type = {`empty`}
+    onHover={()=>{}}
+    onClick={()=>{}}
+    onMouseOut={()=>{}}
+    onBookmark={bookmarkHandler}
+  />);
+  const bookmark = card.find(`.place-card__bookmark-button`);
+  bookmark.simulate(`click`);
+
+  expect(bookmarkHandler).toHaveBeenCalledTimes(1);
+});
