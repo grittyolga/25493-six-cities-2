@@ -1,3 +1,4 @@
+import {cloneDeep} from 'lodash';
 const initialState = {
   offers: [],
 };
@@ -41,7 +42,7 @@ const reducer = (state = initialState, action) => {
       });
     case ActionType.UPDATE_OFFER_FAVORITE:
       const index = state.offers.findIndex((o) => o.id === action.payload.id);
-      const modifiedOffers = state.offers;
+      const modifiedOffers = cloneDeep(state.offers);
       // eslint-disable-next-line camelcase
       modifiedOffers[index].is_favorite = action.payload.is_favorite;
       return Object.assign({}, state, {
